@@ -1,4 +1,5 @@
 function convertToJson(res) {
+  // used to convert data to a json format
   if (res.ok) {
     return res.json();
   } else {
