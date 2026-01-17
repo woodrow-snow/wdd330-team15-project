@@ -1,9 +1,38 @@
 import { getLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
-  const cartItems = getLocalStorage("so-cart");
-  const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-  document.querySelector(".product-list").innerHTML = htmlItems.join("");
+  const cartItems = getLocalStorage("so-cart") || [];
+
+  // checking if cartItems is empty. Print message saying the cart is empty if it is.
+  if (cartItems.length == 0) {
+    document.querySelector('.product-list').innerHTML = `Theres nothing in your cart!`;
+    const returnBtn = document.createElement('a');
+    returnBtn.id = 'addToCart';
+  }
+  else {
+    const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+    document.querySelector(".product-list").innerHTML = htmlItems.join("");
+    displayTotal(cartItems);
+  }
+}
+
+function displayTotal(items) {
+  // ---------- getting total element from DOM and turning on ----------
+  const totalDiv = document.querySelector('.cart-footer.hide');
+  totalDiv.style.display = 'block';
+
+  // ---------- calculating total and adding to DOM ----------
+  // getting p element for total form DOM
+  const totalP = document.querySelector('.cart-total');
+
+  // going through each element and calculating the total
+  let total = 0;
+  items.forEach(item => {
+    total += item.FinalPrice;
+  });
+
+  // adding total to page
+  totalP.textContent += ` $${total}`;
 }
 
 function cartItemTemplate(item) {
