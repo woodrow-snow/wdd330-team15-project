@@ -29,20 +29,8 @@ export default class ProductDetails {
         // getting cart items from localStorage
         const cartItems = getLocalStorage("so-cart") || [];
 
-        // getting current highest id
-        // ** id will be 0 based **
-        let highest_id = 0;
-
-        // if there are items in the cart
-        if (cartItems.length !== 0) {
-            highest_id = cartItems.length;
-        }
-        else if (cartItems.length === 1) {
-            highest_id == 2
-        }
-
         // adding cart id to product
-        product.cartId = highest_id;
+        product.cartId = -1;
 
         cartItems.push(product);
         setLocalStorage("so-cart", cartItems);
