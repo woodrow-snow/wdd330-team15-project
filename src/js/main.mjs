@@ -1,6 +1,10 @@
 import ProductData from "./ProductData.mjs";
 import ProductList from "./ProductList.mjs";
 import { loadHeaderFooter } from "./utils.mjs";
+import { updateCartBadge } from "./utils.mjs";
+
+// update cart badge on page load
+updateCartBadge();
 
 // load header and footer partials
 loadHeaderFooter();

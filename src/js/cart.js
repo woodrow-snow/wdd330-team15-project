@@ -35,6 +35,16 @@ function displayTotal(items) {
   totalP.textContent += ` $${total}`;
 }
 
+export function updateCartBadge() {
+  const cartItems = JSON.parse(localStorage.getItem('so-cart')) || [];
+  const badge = document.getElementById('cart-count');
+  
+  if (badge) {
+    badge.textContent = cartItems.length;
+    // Optional: Hide badge if cart is empty
+    badge.style.display = cartItems.length > 0 ? 'flex' : 'none';
+  }
+}
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">

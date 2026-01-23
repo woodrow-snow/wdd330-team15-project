@@ -57,3 +57,13 @@ export async function loadHeaderFooter() {
     renderWithTemplate(footer, qs('footer'));
   }
   
+export function updateCartBadge() {
+  const cartItems = JSON.parse(localStorage.getItem('so-cart')) || [];
+  const badge = document.getElementById('cart-count');
+  
+  if (badge) {
+    badge.textContent = cartItems.length;
+    // Optional: Hide badge if cart is empty
+    badge.style.display = cartItems.length > 0 ? 'flex' : 'none';
+  }
+}

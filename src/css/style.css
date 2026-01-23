@@ -119,7 +119,7 @@ button {
 /* Cart icon styles */
 .cart {
   padding-top: 1em;
-  position: relative;
+  position: relative; 
   text-align: center;
 }
 
@@ -129,6 +129,38 @@ button {
 
 .cart:hover svg {
   fill: gray;
+}
+
+/* New styles for the badge */
+.cart-badge {
+  position: absolute;
+  /* Adjust 'top' to account for your 1em padding */
+  top: 0.5em; 
+  /* Centers it relative to the 25px SVG */
+  right: calc(50% - 22px); 
+  
+  background-color: #be3333; /* A soft red */
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  
+  /* Circle shape */
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  
+  /* Centers the number inside the circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Smooth entry if you add items later */
+  transition: transform 0.2s ease;
+}
+
+/* Optional: Subtle pop effect on hover */
+.cart:hover .cart-badge {
+  transform: scale(1.1);
 }
 
 /* End cart icon styles */
