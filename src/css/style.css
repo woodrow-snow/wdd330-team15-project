@@ -206,7 +206,7 @@ button {
 /* Start cart list card styles */
 .cart-card {
   display: grid;
-  grid-template-columns: 25% auto 15%;
+  grid-template-columns: 25% auto 15% auto;
   font-size: var(--small-font);
   /* max-height: 120px; */
   align-items: center;
@@ -243,6 +243,20 @@ button {
 
 .cart-footer.hide {
   display: none;
+}
+
+.remove {
+  /* grid */
+  grid-area: 1/4/3/5;
+
+  /* box model */
+  width: 44px;
+  height: 44px;
+  padding: 0;
+
+  /* colors */
+  color: #303030;
+  background-color: transparent;
 }
 
 @media screen and (min-width: 500px) {
