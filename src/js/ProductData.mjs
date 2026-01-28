@@ -1,3 +1,6 @@
+const baseURl = import.meta.env.VITE_SERVER_URL;
+
+
 function convertToJson(res) {
   // used to convert data to a json format
   if (res.ok) {
@@ -8,17 +11,23 @@ function convertToJson(res) {
 }
 
 export default class ProductData {
-  constructor(category) {
-    this.category = category;
-    this.path = `/public/json/${this.category}.json`;
+  constructor() {
   }
-  getData() {
-    return fetch(this.path)
-      .then(convertToJson)
-      .then((data) => data);
+
+  async getData(category) {
+    try {
+      const response = await fetch(`${baseURl}products/search/${category}`);
+      const data = await convertToJson(response);
+      return data.Result;
+    } catch (error) {
+      console.error(error);
+    }
   }
+
   async findProductById(id) {
-    const products = await this.getData();
-    return products.find((item) => item.Id === id);
-  }
+    const product = await fetch(`${baseURl}product/${id}`);
+    const data = await convertToJson(product);
+    console.log(data);
+    return data.Result;
+  }  
 }

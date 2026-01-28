@@ -259,6 +259,44 @@ button {
   background-color: transparent;
 }
 
+/*************************** categories ***************************/
+.product-categories a img{
+  width: 44px;
+  height: 44px;
+}
+
+.product-categories {
+  /* box model */
+  margin-top: 9rem;
+
+  /* flex */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-categories a {
+  /* flex */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* box model */
+  padding: 0.5rem;
+
+  /* text */
+  text-decoration: none;
+}
+
+.product-categories .category-text {
+  
+
+  /* colors */
+  color: #303030;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
@@ -273,6 +311,22 @@ button {
     font-size: inherit;
     grid-template-columns: 150px auto 15%;
   }
+
+    .product-categories a img {
+      width: auto;
+      height: auto;
+    }
+  
+    .product-categories {
+      /* box model */
+      margin-top: 2rem;
+  
+      /* flex */
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
 }
 
 footer {
