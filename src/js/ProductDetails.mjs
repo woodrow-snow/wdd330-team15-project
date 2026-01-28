@@ -38,7 +38,8 @@ export default class ProductDetails {
 
     renderProductDetails(data) {
         // ---------- getting title from DOM and setting textContent ----------
-        // This is what the orignial title looked like: "Sleep Outside | North Face Talus 4-person tent"
+        // This is what the orignial title looked like: "Sleep Outside | North Face Talus 4-person tent
+
         const title = document.querySelector('title');
         const tName = data.Name;
 
@@ -55,7 +56,7 @@ export default class ProductDetails {
         // adding information to selected elements
         h3.textContent = data.Brand.Name;
         h2.textContent = data.NameWithoutBrand;
-        img.src = data.Image;
+        img.src = data.Images.PrimaryLarge;
         img.alt = data.NameWithoutBrand;
         price.textContent = data.ListPrice;
         color.textContent = data.Colors.ColorName;
