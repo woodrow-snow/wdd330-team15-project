@@ -15,11 +15,11 @@ export function setLocalStorage(key, data) {
 }
 // set a listener for both touchend and click
 export function setClick(selector, callback) {
-  qs(selector).addEventListener("touchend", (event) => {
+  qs(selector).addEventListener('touchend', (event) => {
     event.preventDefault();
     callback();
   });
-  qs(selector).addEventListener("click", callback);
+  qs(selector).addEventListener('click', callback);
 }
 
 export function getParam(param) {
@@ -65,7 +65,5 @@ export async function loadHeaderFooter() {
 }
 
 export function toTitleCase(str) {
-  return str.split(' ').map(word => {
-    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
-  }).join(" ");
+  return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join('');
 }

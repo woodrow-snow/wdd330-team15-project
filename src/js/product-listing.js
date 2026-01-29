@@ -1,6 +1,6 @@
-import { getParam, loadHeaderFooter, toTitleCase } from "./utils.mjs";
-import ProductData from "./ProductData.mjs";
-import ProductList from "./ProductList.mjs";
+import { getParam, loadHeaderFooter, toTitleCase } from './utils.mjs';
+import ProductData from './ProductData.mjs';
+import ProductList from './ProductList.mjs';
 
 loadHeaderFooter();
 
