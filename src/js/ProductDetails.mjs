@@ -56,12 +56,19 @@ export default class ProductDetails {
         // adding information to selected elements
         h3.textContent = data.Brand.Name;
         h2.textContent = data.NameWithoutBrand;
-        img.src = data.Images.PrimaryLarge;
+        img.src = data.Images.PrimaryMedium;
         img.alt = data.NameWithoutBrand;
         price.textContent = data.ListPrice;
         color.textContent = data.Colors.ColorName;
         descript.innerHTML = data.DescriptionHtmlSimple;
         btn.dataset.id = data.Id;
+
+        // getting other elements of picture tag
+        const [imgM, imgL] = clone.querySelectorAll("#picture-medium, #picture-large");
+
+        // const imgL = clone.querySelector("#picture-large");
+        imgM.srcset = data.Images.PrimaryLarge;
+        imgL.srcset = data.Images.PrimaryExtraLarge;
 
         // ---------- adding template clone to page ----------
         document.querySelector('main').appendChild(clone);

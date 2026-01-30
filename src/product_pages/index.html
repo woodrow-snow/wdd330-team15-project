@@ -22,25 +22,18 @@
       <template id="product-details-page">
         <section class="product-detail">
           <h3></h3>
-          <!-- used to hold "The North Face" -->
-
           <h2 class="divider"></h2>
-          <!-- used to hold "Talus Tent - 4-Person, 3-Season" -->
-
-          <img class="divider" src="" alt="" />
+          <picture>
+            <source media="(min-width: 650px)" srcset="" id="picture-large"> <!-- large picture -->
+            <source media="(min-width: 400px)" srcset="" id="picture-medium"> medium picture
+            <img class="divider" src="" alt="" id="picture-main"/>
+          </picture>
 
           <p class="product-card__price"></p>
-          <!-- held price for product -->
-
           <p class="product__color"></p>
-          <!-- holds color for product -->
-
           <p class="product__description"></p>
-          <!-- holds product description -->
-
           <div class="product-detail__add">
             <button id="addToCart" data-id="">Add to Cart</button>
-            <!-- need to add product id in the data-id attribute -->
           </div>
         </section>
       </template>
