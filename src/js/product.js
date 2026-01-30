@@ -5,6 +5,8 @@ import { loadHeaderFooter } from "./utils.mjs";
 
 loadHeaderFooter();
 
+getLocalStorage("so-cart");
+
 const dataSource = new ProductData();
 const productId = getParam("product");
 

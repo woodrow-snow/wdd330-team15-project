@@ -117,18 +117,33 @@ button {
 /* End utility classes */
 
 /* Cart icon styles */
+
 .cart {
-  padding-top: 1em;
   position: relative;
-  text-align: center;
+  display: inline-block; /* Crucial for positioning the badge relative to the icon */
+  padding-top: 1em;
 }
 
 .cart svg {
-  width: 25px;
+  width: 25px; /* Adjust as needed */
+  display: block;
 }
 
-.cart:hover svg {
-  fill: gray;
+.cart-badge {
+  position: absolute;
+  top: 5px; /* Tweak this to move the number higher or lower */
+  right: -5px; /* Tweak this to move the number left or right */
+  background: #303030; /* Or a color that pops */
+  color: white;
+  border-radius: 50%;
+  padding: 3px;
+  font-size: 10px;
+  min-width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
 }
 
 /* End cart icon styles */
@@ -260,7 +275,7 @@ button {
 }
 
 /*************************** categories ***************************/
-.product-categories a img{
+.product-categories a img {
   width: 44px;
   height: 44px;
 }
@@ -291,8 +306,6 @@ button {
 }
 
 .product-categories .category-text {
-  
-
   /* colors */
   color: #303030;
 }
@@ -312,21 +325,21 @@ button {
     grid-template-columns: 150px auto 15%;
   }
 
-    .product-categories a img {
-      width: auto;
-      height: auto;
-    }
-  
-    .product-categories {
-      /* box model */
-      margin-top: 2rem;
-  
-      /* flex */
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-    }
+  .product-categories a img {
+    width: auto;
+    height: auto;
+  }
+
+  .product-categories {
+    /* box model */
+    margin-top: 2rem;
+
+    /* flex */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 footer {

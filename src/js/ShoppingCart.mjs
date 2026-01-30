@@ -1,6 +1,6 @@
-import { renderListWithTemplate, setLocalStorage } from "./utils.mjs";
-import { getLocalStorage } from "./utils.mjs";
-import { createDeleteEventListener, displayTotal  } from "./cart";
+import { renderListWithTemplate, setLocalStorage } from './utils.mjs';
+import { getLocalStorage } from './utils.mjs';
+import { createDeleteEventListener, displayTotal  } from './cart';
 
 
 function cartItemTemplate(item) {

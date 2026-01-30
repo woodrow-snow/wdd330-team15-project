@@ -22,30 +22,21 @@ import CartList from "./ShoppingCart.mjs";
 // }
 
 export function displayTotal(items) {
-    const totalDiv = document.querySelector('.cart-footer.hide');
+  const totalDiv = document.querySelector(".cart-footer.hide");
 
-  if (items.length == 0) {
-    totalDiv.style.display = 'none';
-  }
-  else {
+  if (!items || items.length === 0) {
+    totalDiv.style.display = "none";
+  } else {
     // ---------- getting total element from DOM and turning on ----------
-    totalDiv.style.display = 'block';
+    totalDiv.style.display = "block";
 
     // ---------- calculating total and adding to DOM ----------
     // getting p element for total form DOM
-    const totalP = document.querySelector('.cart-total');
+    const totalP = document.querySelector(".cart-total");
 
     // clearing any previous totals
-    totalP.textContent = '';
-
-    // going through each element and calculating the total
-    let total = 0;
-    items.forEach(item => {
-      total += item.FinalPrice;
-    });
-
-    // adding total to page
-    totalP.textContent += ` $${total}`;
+    const total = items.reduce((sum, item) => sum + item.FinalPrice, 0);
+    totalP.textContent = `Total: $${total.toFixed(2)}`;
   }
 }
 
@@ -60,7 +51,7 @@ export function displayTotal(items) {
 //   </a>
 //   <a href="#">
 //     <h2 class="card__name">${item.Name}</h2>
-//   </a> 
+//   </a>
 //   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
 //   <p class="cart-card__quantity">qty: 1</p>
 //   <p class="cart-card__price">$${item.FinalPrice}</p>
@@ -70,35 +61,31 @@ export function displayTotal(items) {
 //   return newItem;
 // }
 
-function removeItemFromCart(id) {
-  // testing
-  console.log(`Id provided: ${id}`);
-
-  // getting cart items
-  const cartItems = getLocalStorage("so-cart")
-  console.log(`Item at provided ID: ` + cartItems[id]); //testing
-
-  // removing from list
-  cartItems.splice(id, 1);
-  
-  // updating ids
-  cartList.updateCartIds(cartItems)
-
-  // re-rendering cart
+function removeItemFromCart(index) {
+  const cartItems = getLocalStorage("so-cart");
+  cartItems.splice(index, 1);
+  setLocalStorage("so-cart", cartItems);
+  cartList.updateCartIds(cartItems);
   cartList.init();
 }
 
 export function createDeleteEventListener(element) {
-  // adding event listener to delete button
-  
-  element.addEventListener('click', () => { 
+  element.addEventListener("click", () => {
     removeItemFromCart(element.dataset.id);
   });
-  console.log('Btn Event listener added');
 }
 
 loadHeaderFooter();
-
-const cartList = new CartList(document.querySelector('.product-list'), 'so-cart');
-
+const cartList = new CartList(
+  document.querySelector(".product-list"),
+  "so-cart",
+);
 cartList.init();
+
+export function updateCartCount(count) {
+  const badge = document.getElementById("cart-count");
+  if (badge) {
+    badge.textContent = count;
+    badge.style.display = count > 0 ? "block" : "none";
+  }
+}

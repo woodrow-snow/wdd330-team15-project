@@ -1,16 +1,15 @@
-import { getParam, loadHeaderFooter, toTitleCase } from './utils.mjs';
-import ProductData from './ProductData.mjs';
-import ProductList from './ProductList.mjs';
+import { getParam, loadHeaderFooter, toTitleCase } from "./utils.mjs";
+import ProductData from "./ProductData.mjs";
+import ProductList from "./ProductList.mjs";
 
 loadHeaderFooter();
 
 // getting params form url
-const productType = getParam('category')
-
+const productType = getParam("category");
 
 // ---------- Updating title ----------
 // getting title from DOM
-const titleSpan = document.getElementById('product-type');
+const titleSpan = document.getElementById("product-type");
 
 titleSpan.textContent = toTitleCase(productType);
 
@@ -19,8 +18,8 @@ titleSpan.textContent = toTitleCase(productType);
 const dataSource = new ProductData();
 
 // getting ul elements from DOM
-const cardsUl = document.querySelector('.product-list');
+const cardsUl = document.querySelector(".product-list");
 
-const products = new ProductList(productType,dataSource,cardsUl);
+const products = new ProductList(productType, dataSource, cardsUl);
 
 products.init();
