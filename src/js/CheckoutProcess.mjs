@@ -101,6 +101,7 @@ export default class CheckoutProcess {
         try {
             const response = await services.checkout(order);
             console.log(response)
+            window.location.href = '/checkout/success.html';
         } catch (error) {
             console.log(error);
         }

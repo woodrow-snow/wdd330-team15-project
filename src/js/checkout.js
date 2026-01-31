@@ -20,6 +20,21 @@ zipField.addEventListener('blur', () => {
 const checkoutBtn = document.querySelector('#checkout');
 
 checkoutBtn.addEventListener('click', event => {
+    // ---------- Stopping default action ----------
     event.preventDefault();
-    checkout.checkout();
+
+    // ---------- validation of form data on client side ----------
+    // getting from from DOM
+    const form = document.forms[0];
+
+    // checking if form is valid and storing returned bool in var
+    const isFormValid = form.checkValidity();
+    form.reportValidity();
+    // using if to check if form is vaild and taking approiate action
+    if (isFormValid) {
+        checkout.checkout();
+    }
+    else {
+        
+    }
 });

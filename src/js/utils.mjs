@@ -67,3 +67,30 @@ export async function loadHeaderFooter() {
 export function toTitleCase(str) {
   return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join('');
 }
+
+export function alertMesssage(message, scroll = true) {
+  // creating alert element
+  const alert = document.createElement('div');
+  // adding a class of alert
+  alert.classList.add('alert');
+
+  // setting contents of alert
+  const alertClose = document.createElement('button');
+  alertClose.classList.add('closeAlert');
+  alertClose.textContent = 'X';
+
+  // adding event listener to remove alert
+  alertClose.addEventListener('click', () => {
+    alert.remove();
+  });
+
+  alert.textContent = message;
+  alert.appendChild(alertClose);
+  
+  // adding alert to top of main
+  const main = document.querySelector('main');
+  main.prepend(alert);
+  if (scroll) {
+    window.scrollTo(0, 0);
+  }
+}

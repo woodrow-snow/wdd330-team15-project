@@ -310,8 +310,83 @@ button {
   color: #303030;
 }
 
-/*************************** Checkout Button ***************************/
+/*************************** Cart Page ***************************/
+#checkoutBtn {
+  /* text */
+  text-decoration: none;
 
+  /* box model */
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+
+  /* colors */
+  background-color: var(--secondary-color);
+  color: var(--light-grey);
+
+  /* font */
+  font-size: 1.4rem;
+}
+
+#checkoutBtnWrapper {
+  text-align: center;
+}
+
+/*************************** Checkout Index ***************************/
+#checkoutFrom {
+  /* flex */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  /* box model */
+  margin: 0 2rem;
+
+  & fieldset {
+    /* box model */
+    padding: 0.5rem;
+    border: 1px solid var(--tertiary-color);
+
+    & legend {
+      padding: 0 0.5rem;
+    }
+
+    & label {
+      /* flex */
+      display: flex;
+      flex-direction: column;
+
+      /* box model */
+      max-width: 170px;
+      margin: 0.5rem;
+
+      & input {
+        padding: 0.2rem;
+      }
+    }
+  }
+
+  & #checkout {
+    /* colors */
+    background-color: var(--secondary-color);
+    color: var(--light-grey);
+
+    /* box model */
+    padding: 0.5rem;
+    border: none;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+
+    /* font */
+    font-size: 1.2rem;
+  }
+}
+
+/*************************** Checkout Succes ***************************/
+#successPage {
+  text-align: center;
+  margin: 1rem;
+}
 
 @media screen and (min-width: 500px) {
   body {
@@ -342,6 +417,56 @@ button {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+  }
+
+    /*************************** Alert ***************************/
+    .alert {
+      background-color: var(--primary-color);
+      text-align: center;
+      border: 1px solid var(--tertiary-color);
+
+      /* flex */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      /* font */
+      font-size: 1.3rem;
+
+      /* box model */
+      padding: 1rem;
+      margin-top: 0.5rem;
+
+      & .closeAlert {
+        background-color: transparent;
+        color: var(--dark-grey);
+        margin: 0;
+        padding: 0;
+    }
+
+  /*************************** Checkout Index Large Screen ***************************/
+  .checkoutMain {
+    /* grid */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    /* box model */
+    padding: 2rem;
+
+    /*************************** Childern Elements ***************************/
+    & .products {
+      grid-column: 2/3;
+      margin: 1rem;
+      padding: 1rem;
+      justify-self: center;
+      align-self: center;
+      border: 1px solid var(--tertiary-color);
+    }
+
+    & #checkoutFrom {
+      grid-area: 1/1/2/2;
+      margin: 1rem;
+    }
   }
 }
 
