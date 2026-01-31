@@ -18,7 +18,63 @@
     <main class="divider">
       <section class="products">
         <h2>Review & Place your Order</h2>
+        <div id="orderInfo">
+          <p class="subTotal">Subtotal: $<span class="subAmount"></span></p>
+          <p class="tax">Tax: $<span class="taxAmount"></span></p>
+          <p class="shipping">Shipping Estimate: $<span class="shippingEstiamte"></span></p>
+          <p class="total">Order Total: $<span class="orderTotal"></span></p>
+        </div>
       </section>
+      <form id="checkoutFrom">
+        <fieldset class="fullName">
+          <legend>Name</legend>
+          <label for="firstname">
+            First Name:
+            <input name="firstname" id="firstname" type="text" required>
+          </label>
+          <label for="lastname">
+            Last Name:
+            <input name="lastname" id="lastname" type="text" required>
+          </label>
+        </fieldset>
+
+        <fieldset class="address">]
+          <legend>Address</legend>
+          <label for="street">
+            Street Address:
+            <input type="text" name="street" id="street" required>
+          </label>
+          <label for="city">
+           City:
+            <input type="text" name="city" id="city" required>
+          </label>
+          <label for="state">
+            State:
+            <input type="text" name="state" id="state" required>
+          </label>
+          <label for="zip">
+            Zip Code:
+            <input type="text" name="zip" id="zip" required>
+          </label>
+        </fieldset>
+
+        <fieldset class="payment">
+          <legend>Payment</legend>
+          <label for="ccn">
+            Credit Card Number:
+            <input type="number" name="ccn" id="ccn" required minlength="16" maxlength="16">
+          </label>
+          <label for="expireDate">
+            Expiration Date:
+            <input type="text" name="expireDate" id="expireDate" required> <!-- want to add some validation here in the form of a patter attr -->
+          </label>
+          <label for="sCode">
+            Security Code:
+            <input type="number" name="sCode" id="sCode" required minlength="3" maxlength="3">
+          </label>
+        </fieldset>
+        <input type="submit" value="Place Order">
+      </form>
     </main>
 
     <footer></footer>
