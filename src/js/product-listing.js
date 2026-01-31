@@ -1,5 +1,5 @@
 import { getParam, loadHeaderFooter, toTitleCase } from "./utils.mjs";
-import ProductData from "./ProductData.mjs";
+import ExternalServices from "./ExternalServices.mjs";
 import ProductList from "./ProductList.mjs";
 
 loadHeaderFooter();
@@ -15,7 +15,7 @@ titleSpan.textContent = toTitleCase(productType);
 
 // ---------- creating product list ----------
 // creating new instance of product data
-const dataSource = new ProductData();
+const dataSource = new ExternalServices();
 
 // getting ul elements from DOM
 const cardsUl = document.querySelector(".product-list");

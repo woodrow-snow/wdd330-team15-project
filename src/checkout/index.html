@@ -8,8 +8,8 @@
 
     <title>Sleep Outside | Checkout</title>
 
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="../js/checkout.js" defer></script>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="../js/checkout.js" type="module" defer></script>
   </head>
 
   <body>
@@ -19,61 +19,62 @@
       <section class="products">
         <h2>Review & Place your Order</h2>
         <div id="orderInfo">
-          <p class="subTotal">Subtotal: $<span class="subAmount"></span></p>
-          <p class="tax">Tax: $<span class="taxAmount"></span></p>
-          <p class="shipping">Shipping Estimate: $<span class="shippingEstiamte"></span></p>
-          <p class="total">Order Total: $<span class="orderTotal"></span></p>
+          <p class="subTotal">Subtotal: <span class="subAmount"></span></p>
+          <p class="tax">Tax: <span class="taxAmount"></span></p>
+          <p class="shipping">Shipping Estimate: <span class="shippingEstiamte"></span></p>
+          <p class="total">Order Total: <span class="orderTotal"></span></p>
         </div>
       </section>
+
       <form id="checkoutFrom">
         <fieldset class="fullName">
           <legend>Name</legend>
-          <label for="firstname">
+          <label for="fname">
             First Name:
-            <input name="firstname" id="firstname" type="text" required>
+            <input name="fname" id="firstname" type="text" required value="Max">
           </label>
-          <label for="lastname">
+          <label for="lname">
             Last Name:
-            <input name="lastname" id="lastname" type="text" required>
+            <input name="lname" id="lastname" type="text" required value="Oswald">
           </label>
         </fieldset>
 
-        <fieldset class="address">]
+        <fieldset class="address">
           <legend>Address</legend>
           <label for="street">
             Street Address:
-            <input type="text" name="street" id="street" required>
+            <input type="text" name="street" id="street" required value="1234 Parkway">
           </label>
           <label for="city">
            City:
-            <input type="text" name="city" id="city" required>
+            <input type="text" name="city" id="city" required value="Default">
           </label>
           <label for="state">
             State:
-            <input type="text" name="state" id="state" required>
+            <input type="text" name="state" id="state" required value="CA">
           </label>
           <label for="zip">
             Zip Code:
-            <input type="text" name="zip" id="zip" required>
+            <input type="text" name="zip" id="zip" required value="12345">
           </label>
         </fieldset>
 
         <fieldset class="payment">
           <legend>Payment</legend>
-          <label for="ccn">
+          <label for="cardNumber">
             Credit Card Number:
-            <input type="number" name="ccn" id="ccn" required minlength="16" maxlength="16">
+            <input type="text" name="cardNumber" id="ccn" value="1234123412341234">
           </label>
-          <label for="expireDate">
+          <label for="expiration">
             Expiration Date:
-            <input type="text" name="expireDate" id="expireDate" required> <!-- want to add some validation here in the form of a patter attr -->
+            <input type="text" name="expiration" id="expireDate" required value="01/34"> <!-- want to add some validation here in the form of a patter attr -->
           </label>
-          <label for="sCode">
+          <label for="code">
             Security Code:
-            <input type="number" name="sCode" id="sCode" required minlength="3" maxlength="3">
+            <input type="number" name="code" id="sCode" required minlength="3" maxlength="3" value="123">
           </label>
         </fieldset>
-        <input type="submit" value="Place Order">
+        <input type="submit" value="Place Order" id="checkout">
       </form>
     </main>
 
