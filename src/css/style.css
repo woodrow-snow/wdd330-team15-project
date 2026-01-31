@@ -310,6 +310,9 @@ button {
   color: #303030;
 }
 
+/*************************** Checkout Button ***************************/
+
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
