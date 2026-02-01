@@ -26,15 +26,26 @@ export default class ProductDetails {
     }
 
     addProductToCart(product) {
-        // getting cart items from localStorage
-        const cartItems = getLocalStorage("so-cart") || [];
+    // 1. Get current cart items from localStorage
+    const cartItems = getLocalStorage('so-cart') || [];
 
-        // adding cart id to product
-        product.cartId = -1;
+    // 2. Check if the product already exists in the cart by ID
+    const existingItem = cartItems.find(item => item.Id === product.Id);
 
+    if (existingItem) {
+        // 3. If it exists, increment the quantity property
+        // We use || 1 in case the item didn't have a quantity property yet
+        existingItem.quantity = (existingItem.quantity || 1) + 1;
+    } else {
+        // 4. If it's a new item, set the initial quantity to 1
+        product.quantity = 1;
+        product.cartId = -1; 
         cartItems.push(product);
-        setLocalStorage("so-cart", cartItems);
     }
+
+    // 5. Save the updated array back to localStorage
+    setLocalStorage('so-cart', cartItems);
+}
 
     renderProductDetails(data) {
         // ---------- getting title from DOM and setting textContent ----------
@@ -51,7 +62,7 @@ export default class ProductDetails {
         const clone = template.content.cloneNode(true);
 
         // getting elements from clone
-        const [h3, h2, img, price, color, descript, btn] = clone.querySelectorAll("h3, h2, img, .product-card__price, .product__color, .product__description, #addToCart");
+        const [h3, h2, img, price, color, descript, btn] = clone.querySelectorAll('h3, h2, img, .product-card__price, .product__color, .product__description, #addToCart');
 
         // adding information to selected elements
         h3.textContent = data.Brand.Name;
@@ -64,7 +75,7 @@ export default class ProductDetails {
         btn.dataset.id = data.Id;
 
         // getting other elements of picture tag
-        const [imgM, imgL] = clone.querySelectorAll("#picture-medium, #picture-large");
+        const [imgM, imgL] = clone.querySelectorAll('#picture-medium, #picture-large');
 
         // const imgL = clone.querySelector("#picture-large");
         imgM.srcset = data.Images.PrimaryLarge;

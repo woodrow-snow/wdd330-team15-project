@@ -1,6 +1,6 @@
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
-import { loadHeaderFooter } from "./utils.mjs";
-import CartList from "./ShoppingCart.mjs";
+import { getLocalStorage, setLocalStorage } from './utils.mjs';
+import { loadHeaderFooter } from './utils.mjs';
+import CartList from './ShoppingCart.mjs';
 
 // function renderCartContents() {
 //   const cartItems = getLocalStorage("so-cart") || [];
@@ -22,17 +22,17 @@ import CartList from "./ShoppingCart.mjs";
 // }
 
 export function displayTotal(items) {
-  const totalDiv = document.querySelector(".cart-footer.hide");
+  const totalDiv = document.querySelector('.cart-footer.hide');
 
   if (!items || items.length === 0) {
-    totalDiv.style.display = "none";
+    totalDiv.style.display = 'none';
   } else {
     // ---------- getting total element from DOM and turning on ----------
-    totalDiv.style.display = "block";
+    totalDiv.style.display = 'block';
 
     // ---------- calculating total and adding to DOM ----------
     // getting p element for total form DOM
-    const totalP = document.querySelector(".cart-total");
+    const totalP = document.querySelector('.cart-total');
 
     // clearing any previous totals
     const total = items.reduce((sum, item) => sum + item.FinalPrice, 0);
@@ -62,30 +62,30 @@ export function displayTotal(items) {
 // }
 
 function removeItemFromCart(index) {
-  const cartItems = getLocalStorage("so-cart");
+  const cartItems = getLocalStorage('so-cart');
   cartItems.splice(index, 1);
-  setLocalStorage("so-cart", cartItems);
+  setLocalStorage('so-cart', cartItems);
   cartList.updateCartIds(cartItems);
   cartList.init();
 }
 
 export function createDeleteEventListener(element) {
-  element.addEventListener("click", () => {
+  element.addEventListener('click', () => {
     removeItemFromCart(element.dataset.id);
   });
 }
 
 loadHeaderFooter();
 const cartList = new CartList(
-  document.querySelector(".product-list"),
-  "so-cart",
+  document.querySelector('.product-list'),
+  'so-cart',
 );
 cartList.init();
 
 export function updateCartCount(count) {
-  const badge = document.getElementById("cart-count");
+  const badge = document.getElementById('cart-count');
   if (badge) {
     badge.textContent = count;
-    badge.style.display = count > 0 ? "block" : "none";
+    badge.style.display = count > 0 ? 'block' : 'none';
   }
 }

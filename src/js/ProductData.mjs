@@ -6,7 +6,7 @@ function convertToJson(res) {
   if (res.ok) {
     return res.json();
   } else {
-    throw new Error("Bad Response");
+    throw new Error('Bad Response');
   }
 }
 
@@ -17,7 +17,9 @@ export default class ProductData {
   async getData(category) {
     try {
       const response = await fetch(`${baseURl}products/search/${category}`);
+      console.log(response);
       const data = await convertToJson(response);
+      console.log(data.Result);
       return data.Result;
     } catch (error) {
       console.error(error);
