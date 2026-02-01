@@ -1,5 +1,5 @@
 import { getLocalStorage, getParam } from './utils.mjs';
-import ProductData from './ProductData.mjs';
+import ExternalServices from './ExternalServices.mjs';
 import ProductDetails from './ProductDetails.mjs';
 import { loadHeaderFooter } from './utils.mjs';
 
@@ -7,7 +7,7 @@ loadHeaderFooter();
 
 getLocalStorage('so-cart');
 
-const dataSource = new ProductData();
+const dataSource = new ExternalServices();
 const productId = getParam('product');
 
 const fullProduct = new ProductDetails(productId, dataSource);
