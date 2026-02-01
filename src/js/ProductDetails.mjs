@@ -27,13 +27,13 @@ export default class ProductDetails {
 
     addProductToCart(product) {
         // getting cart items from localStorage
-        const cartItems = getLocalStorage("so-cart") || [];
+        const cartItems = getLocalStorage('so-cart') || [];
 
         // adding cart id to product
         product.cartId = -1;
 
         cartItems.push(product);
-        setLocalStorage("so-cart", cartItems);
+        setLocalStorage('so-cart', cartItems);
     }
 
     renderProductDetails(data) {
